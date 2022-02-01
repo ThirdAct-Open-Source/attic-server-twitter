@@ -1,6 +1,6 @@
 {
     "name": "@thirdact/attic-server-twitter",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A plugin for oauth with twitter on attic",
     "main": "lib/Atticfile.js",
     "publishConfig": {
@@ -18,7 +18,7 @@
     "contributors": [
         {
             "name": "Third Act Team",
-            "email": "open-source@etomon.com",
+            "email": "zach@thirdact.digital",
             "url": "https://thirdact.digital"
         }
     ],
