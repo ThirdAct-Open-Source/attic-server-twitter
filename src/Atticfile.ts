@@ -87,15 +87,14 @@ export class AtticServerTwitter implements IPlugin {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': `Basic ${Buffer.from(opts.provider.clientId + ':' + opts.provider.clientSecret, 'utf8').toString('base64')}`
           };
-
         });
-      this.applicationContext.registerHook<string|undefined>('Web.AuthMiddleware.auth.twitter.authorize.getAuthorizeRedirectUri', async (opts: any): Promise<string|undefined> => {
+      this.applicationContext.registerHook<string|undefined>('AuthMiddleware.auth.twitter.authorize.getAuthorizeRedirectUri', async (opts: any): Promise<string|undefined> => {
         if (opts.provider.authorizeUri) {
           const u = new URL.URL(opts.provider.authorizeUri);
 
           u.searchParams.set('client_id', opts.provider.clientId);
           // u.searchParams.set('redirect_uri',  opts.newState.redirectUri);
-          u.searchParams.set('state', opts.stateKey.split('.').slice(-1)[0]);
+          u.searchParams.set('state', opts.state);
           u.searchParams.set('response_type', 'code');
           u.searchParams.set('code_challenge', 'challenge');
           u.searchParams.set('code_challenge_method', 'plain');
